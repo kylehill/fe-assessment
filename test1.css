@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    --header-height: 44px;
+}
+
+.mobile_header {
+    height: var(--header-height);
+    background: #1C1C1C;
+    position: fixed;
+    border-bottom: solid 1px #474747;
+    color: white;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.mobile_header-button {
+    position: absolute;
+    padding: 0 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    height: 25px;
+    color: white;
+    background: linear-gradient(#242424 0%, #020202);
+    border: solid 1px #2F2F2F;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.header-button-left {
+    left: 12px;
+    padding-left: 20px;
+}
+
+.header-button-left::before {
+    position: absolute;
+    content: "<";
+    color: white;
+    font-weight: bold;
+    left: 7px;
+    font-size: 10px;
+}
+
+.mobile_header-title {
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-weight: bold;
+}
+
+.mobile_header-logo {
+    height: 20px;
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.mobile_main {
+    min-height: 100vh;
+    background-image: url("test1_assets/background.png");
+    background-position: top center;
+    background-size: cover;
+    padding: 0 40px;
+    padding-top: calc(20px + var(--header-height));
+    padding-bottom: 20px;
+    max-width: 600px;
+    margin: 0px auto;
+}
+
+.mobile_main-leader {
+    display: block;
+    width: 100%;
+    margin: 0px auto;
+    border: solid 3px white;
+    box-shadow: 3px 3px #333;
+}
+
+.mobile_main-address {
+    margin: 30px 0;
+    color: #A2BED8;
+    line-height: 1.5;
+}
+
+.mobile_main-address address {
+    font-style: normal;
+}
+
+.mobile_main-address h1 {
+    color: white;
+}
+
+.mobile_main-address a {
+    color: white;
+    text-decoration: none;
+    border-bottom: solid 1px #82919E;
+}
+
+.mobile_main-subnav ul {
+    list-style-type: none;
+}
+
+.mobile_main-subnav li {
+    --height: 42px;
+    color: #011324;
+    height: var(--height);
+    line-height: var(--height);
+    font-weight: bold;
+    background: linear-gradient(white 0%, #C0CEDA);
+    border-bottom: solid 1px #CBCBCB;
+    padding-left: 16px;
+    position: relative;
+    cursor: pointer;
+}
+
+.mobile_main-subnav li:first-child {
+    border-radius: 6px 6px 0 0;
+}
+
+.mobile_main-subnav li:last-child {
+    border-radius: 0 0 6px 6px;
+}
+
+.mobile_main-subnav li::after {
+    content: ">";
+    position: absolute;
+    right: 16px;
+    font-size: 10px;
+}
