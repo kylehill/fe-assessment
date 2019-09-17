@@ -1,5 +1,4 @@
 import MultiSelectRoom from "./MultiSelectRoom"
-import RoomMultiSelectContext from "../contexts/RoomMultiSelectContext"
 
 class RoomMultiSelector extends React.Component {
     constructor(props) {
@@ -90,42 +89,40 @@ class RoomMultiSelector extends React.Component {
         }
 
         return (
-            <RoomMultiSelectContext.Provider value={{
-                rooms: this.state.rooms,
-                toggleRoom: this.toggleRoom,
-                changeOccupants: this.changeOccupants
-            }}>
-                <>
-                    <ul className="multiselect-list">
-                        {this.state.rooms.map((room, idx) => {
-                            return (
-                                <MultiSelectRoom key={idx} number={idx} />
-                            )
-                        })}
-                    </ul>
-                    <button className="multiselect-button"
-                        onClick={this.saveToLocalStorage}>
-                        Submit
-                    </button>
-                    <style jsx>{`
-                        .multiselect-list {
-                            margin: 20px;
-                            font-size: 12px;
-                            font-family: Arial, sans-serif;
-                        }
+            <>
+                <ul className="multiselect-list">
+                    {this.state.rooms.map((room, idx) => {
+                        return (
+                            <MultiSelectRoom key={idx} 
+                                number={idx}
+                                room={room}
+                                toggleRoom={this.toggleRoom}
+                                changeOccupants={this.changeOccupants} />
+                        )
+                    })}
+                </ul>
+                <button className="multiselect-button"
+                    onClick={this.saveToLocalStorage}>
+                    Submit
+                </button>
+                <style jsx>{`
+                    .multiselect-list {
+                        margin: 20px;
+                        font-size: 12px;
+                        font-family: Arial, sans-serif;
+                    }
 
-                        .multiselect-button {
-                            margin-left: 20px;
-                            font-size: 16px;
-                            padding: 10px;
-                            background: #C0C0C0;
-                            border-bottom: solid 1px #515151;
-                            border-right: solid 1px #515151;
-                            cursor: pointer;
-                        }
-                    `}</style>
-                </>
-            </RoomMultiSelectContext.Provider>
+                    .multiselect-button {
+                        margin-left: 20px;
+                        font-size: 16px;
+                        padding: 10px;
+                        background: #C0C0C0;
+                        border-bottom: solid 1px #515151;
+                        border-right: solid 1px #515151;
+                        cursor: pointer;
+                    }
+                `}</style>
+            </>
         )
     }
 }
